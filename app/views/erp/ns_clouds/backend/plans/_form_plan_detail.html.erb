@@ -1,0 +1,22 @@
+<div class="row">
+    <input type="hidden" name="plan[plan_details_attributes][<%= uid %>][id]"
+           value="<%= plan_detail.id %>">
+    <div class="col-md-6">
+        <%= erp_form_control("text", {
+            name: 'plan[plan_details_attributes]['+ uid +'][name]',
+            value: plan_detail.name,                   
+            placeholder: t('.name'),
+            required: true
+        }) %>
+    </div>
+    <div class="col-md-4">
+        <%= erp_form_control("text", {
+            name: 'plan[plan_details_attributes]['+ uid +'][icon]',
+            value: plan_detail.icon,                   
+            placeholder: t('.icon')
+        }) %>
+    </div>
+    <div class="col-md-2">        
+        <%= erp_form_control("addableform_remove_button", { }) %>
+    </div>
+</div>

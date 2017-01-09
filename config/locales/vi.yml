@@ -1,0 +1,13 @@
+vi:
+  daily: "Mỗi ngày"
+  monthly: "Mỗi tháng"
+  yearly: "Mỗi năm"
+  erp:
+    ns_clouds:
+      backend:
+        plans:
+          form:
+            
+          form_plan_detail:
+            icon: "Chèn icon....."
+            name: "Nhập tên....."

@@ -1,0 +1,57 @@
+<%= form_for([erp_ns_clouds, :backend, plan]) do |f| %>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <%= erp_form_control("text", {
+                        name: 'plan[name]',
+                        value: plan.name,                   
+                        label: t('.name'),
+                        required: true,
+                        errors: plan.errors.full_messages_for(:name)
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'plan[price]',
+                        value: plan.price,                   
+                        label: t('.price'),
+                        required: true,
+                        errors: plan.errors.full_messages_for(:price)
+                    }) %>
+                    <%= erp_form_control('select', {
+                        label: t('.period'),
+                        name: 'plan[period]',
+                        value: plan.period,
+                        options: Erp::NsClouds::Plan.get_period_options(),
+                        required: true,
+                        errors: plan.errors.full_messages_for(:period)
+                    }) %>
+                    <%= erp_form_control("textarea", {
+                        name: 'plan[description]',
+                        value: plan.description,                   
+                        label: t('.description')
+                    }) %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <%= erp_form_control("addableform", {
+                        add_button: t('.add'),
+                        partial: 'erp/ns_clouds/backend/plans/form_plan_detail',
+                        partial_url: erp_ns_clouds.form_plan_detail_backend_plans_path,
+                        items: @plan.plan_details,
+                        item: :plan_detail
+                    }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_ns_clouds.backend_plans_path
+    }) %>
+<% end %>
