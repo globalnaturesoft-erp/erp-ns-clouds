@@ -1,0 +1,33 @@
+<% content_for :title do %>
+    <%= @subscription.account_name %>
+<% end %>
+
+<% content_for :page_title do %>    
+    <a href="<%= erp_ns_clouds.backend_subscriptions_path %>">
+    <i class="fa fa-file-text-o"></i> <%= t('.subscriptions') %>
+    </a> / <%= @subscription.account_name %>
+<% end %>
+
+<% content_for :page_toolbar do %>
+    <%= erp_component('button/create', {
+        text: t('.create'),
+        href: erp_ns_clouds.new_backend_subscription_path,
+        class: 'btn-sm'
+    }) %>
+<% end %>
+
+<div class="row">
+    <div class="col-md-6">
+        <% if @subscription.errors.any? %>
+            <%= erp_form_control("form_error_message") %>
+        <% end %>
+        
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <%= render 'form', subscription: @subscription %>
+            </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+    </div>
+</div>

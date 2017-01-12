@@ -4,6 +4,7 @@ class CreateErpNsCloudsPlanDetails < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :icon
       t.text :description
+      t.references :creator, index: true, references: :erp_users
       t.references :plan, index: true, references: :erp_ns_clouds_plans
 
       t.timestamps

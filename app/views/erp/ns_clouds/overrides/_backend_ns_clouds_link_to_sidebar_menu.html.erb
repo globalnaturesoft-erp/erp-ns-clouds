@@ -1,4 +1,4 @@
-<li class="nav-item <%= "active open" if ["erp/ns_clouds/backend/plans"].include?(params[:controller]) %>">
+<li class="nav-item <%= "active open" if ["erp/ns_clouds/backend/plans", "erp/ns_clouds/backend/accounts", "erp/ns_clouds/backend/subscriptions"].include?(params[:controller]) %>">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-cubes"></i>
         <span class="title"><%= t('.ns_clouds') %></span>
@@ -13,6 +13,16 @@
         <li class="nav-item">
             <a href="<%= erp_ns_clouds.backend_plans_path %>" class="nav-link">
                 <span class="title"><%= t('.plan') %></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<%= erp_ns_clouds.backend_accounts_path %>" class="nav-link">
+                <span class="title"><%= t('.account') %></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<%= erp_ns_clouds.backend_subscriptions_path %>" class="nav-link">
+                <span class="title"><%= t('.subscription') %></span>
             </a>
         </li>
     </ul>

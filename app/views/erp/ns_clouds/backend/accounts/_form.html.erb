@@ -1,0 +1,135 @@
+<%= form_for([erp_ns_clouds, :backend, account], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <%= erp_form_control('image', {
+                                img_src: account.image_url.medium,
+                                name: 'account[image_url]'
+                            }) %>
+                        </div>
+                        <div class="col-md-8">
+                            <%= erp_form_control("text", {
+                                name: 'account[domain]',
+                                value: account.domain,                   
+                                label: t('.domain'),
+                                required: true,
+                                errors: account.errors.full_messages_for(:domain)
+                            }) %>
+                            <%= erp_form_control("text", {
+                                name: 'account[username]',
+                                value: account.username,                   
+                                label: t('.username'),
+                                required: true,
+                                errors: account.errors.full_messages_for(:username)
+                            }) %>
+                            <%= erp_form_control("text", {
+                                name: 'account[password]',
+                                value: account.password,                   
+                                label: t('.password'),
+                                required: true,
+                                errors: account.errors.full_messages_for(:password)
+                            }) %>
+                        </div>
+                    </div>
+                    
+                    <%= erp_form_control("text", {
+                        name: 'account[name]',
+                        value: account.name,                   
+                        label: t('.name'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:name)
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'account[legal_representative]',
+                        value: account.legal_representative,                   
+                        label: t('.legal_representative')
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'account[phone]',
+                        value: account.phone,                   
+                        label: t('.phone'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:phone)
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'account[email]',
+                        value: account.email,                   
+                        label: t('.email'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:email)
+                    }) %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <%= erp_form_control("text", {
+                        name: 'account[address]',
+                        value: account.address,                   
+                        label: t('.address'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:address)
+                    }) %>
+                    <%= erp_form_control("dataselect", {
+                        name: 'account[country_id]',
+                        value: account.country_id,
+                        text: account.country_name,
+                        placeholder: t('.choose_country'),
+                        label: t('.country'),
+                        url: erp_areas.dataselect_backend_countries_path(format: 'json'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:country_id)
+                    }) %>
+                    <%= erp_form_control("dataselect", {
+                        name: 'account[state_id]',
+                        value: account.state_id,
+                        text: account.state_name,
+                        placeholder: t('.choose_state'),
+                        label: t('.state'),
+                        url: erp_areas.dataselect_backend_states_path(format: 'json'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:state_id),
+                        parent_control: "input[name='account[country_id]']",
+                        parent_id: "country_id"
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'account[website]',
+                        value: account.website,                   
+                        label: t('.website')
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'account[fax]',
+                        value: account.fax,                   
+                        label: t('.fax')
+                    }) %>
+                    <%= erp_form_control("text", {
+                        name: 'account[tax]',
+                        value: account.tax,                   
+                        label: t('.tax')
+                    }) %>
+                    <%= erp_form_control("dataselect", {
+                        name: 'account[industry_id]',
+                        value: account.industry_id,
+                        text: account.industry_name,
+                        placeholder: t('.choose_industry'),
+                        label: t('.industry'),
+                        url: erp_industries.dataselect_backend_industries_path(format: 'json'),
+                        required: true,
+                        errors: account.errors.full_messages_for(:industry_id)
+                    }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_ns_clouds.backend_accounts_path
+    }) %>
+<% end %>

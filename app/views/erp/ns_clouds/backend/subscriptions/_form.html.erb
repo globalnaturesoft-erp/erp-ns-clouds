@@ -1,0 +1,36 @@
+<%= form_for([erp_ns_clouds, :backend, subscription]) do |f| %>    
+    <%= erp_form_control("dataselect", {
+        name: 'subscription[account_id]',
+        value: subscription.account_id,
+        text: subscription.account_name,
+        placeholder: t('.choose_account_name'),
+        label: t('.account_name'),
+        url: erp_ns_clouds.dataselect_backend_accounts_path(format: 'json'),
+        required: true,
+        errors: subscription.errors.full_messages_for(:account_id)
+    }) %>
+    <%= erp_form_control("dataselect", {
+        name: 'subscription[plan_id]',
+        value: subscription.plan_id,
+        text: subscription.plan_name,
+        placeholder: t('.choose_plan_name'),
+        label: t('.plan_name'),
+        url: erp_ns_clouds.dataselect_backend_plans_path(format: 'json'),
+        required: true,
+        errors: subscription.errors.full_messages_for(:plan_id)
+    }) %>
+    <%= erp_form_control("text", {
+        name: 'subscription[quantity]',
+        value: subscription.quantity,                   
+        label: t('.quantity'),
+        required: true,
+        errors: subscription.errors.full_messages_for(:quantity)
+    }) %>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_ns_clouds.backend_subscriptions_path
+    }) %>
+<% end %>

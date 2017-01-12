@@ -2,12 +2,197 @@ vi:
   daily: "Mỗi ngày"
   monthly: "Mỗi tháng"
   yearly: "Mỗi năm"
+  layouts:
+    erp:
+      backend:
+        sidebar:
+          ns_clouds: "NS đám mây"
+          plan: "Gói phần mềm"
+          account: "Tài khoản"
+          subscription: "Thông tin đăng ký"
   erp:
     ns_clouds:
       backend:
         plans:
+          create:
+            success: "Thêm gói phần mềm thành công."
+          update:
+            success: "Cập nhật gói phần mềm thành công."
+          destroy:
+            success: "Xóa gói phần mềm thành công."
+          delete_all:
+            success: "Xóa gói phần mềm được chọn thành công."
+          archive_all:
+            success: "Ẩn gói phần mềm được chọn thành công."
+          unarchive_all:
+            success: "Hiện gói phần mềm được chọn thành công."
+          index:
+            plans: "Gói phần mềm"
+            create: "Thêm gói phần mềm"
+            delete: "Xóa gói phần mềm"
+            plan_archived: "Gói phần mềm đã bị ẩn"
+            name: "Tên"
+            price: "Giá"
+          list:
+            name: "Tên"
+            price: "Giá"
+            delete: "Xóa gói phần mềm"
+          new:
+            plans: "Gói phần mềm"
+            create: "Thêm gói phần mềm"
+          edit:
+            plans: "Gói phần mềm"
+            create: "Thêm gói phần mềm"
           form:
-            
+            name: "Tên"
+            price: "Giá"
+            period: "Giai đoạn"
+            description: "Mô tả"
           form_plan_detail:
             icon: "Chèn icon....."
-            name: "Nhập tên....."
+            name: "Nhập tên chức năng....."
+        accounts:
+          create:
+            success: "Thêm tài khoản thành công."
+          update:
+            success: "Cập nhật tài khoản thành công."
+          destroy:
+            success: "Xóa tài khoản thành công."
+          delete_all:
+            success: "Xóa tài khoản được chọn thành công."
+          archive_all:
+            success: "Ẩn tài khoản được chọn thành công."
+          unarchive_all:
+            success: "Hiện tài khoản được chọn thành công."
+          index:
+            accounts: "Tài khoản"
+            create: "Thêm tài khoản"
+            delete: "Xóa tài khoản"
+            account_archived: "Tài khoản đã bị ẩn"
+            name: "Tên"
+          list:
+            name: "Tên"
+            delete: "Xóa tài khoản"
+          new:
+            accounts: "Tài khoản"
+            create: "Thêm tài khoản"
+          edit:
+            accounts: "Tài khoản"
+            create: "Thêm tài khoản"
+          form:
+            domain: "Tên miền"
+            username: "Tài khoản"
+            password: "Mật khẩu"
+            name: "Tên"
+            legal_representative: "Người đại diện"
+            phone: "Số điện thoại"
+            email: "Địa chỉ email"
+            address: "Địa chỉ"
+            country: "Quốc gia"
+            state: "Tỉnh/Thành Phố"
+            website: "Trang web"
+            fax: "Số fax"
+            tax: "Mã số thuế"
+            industry: "Lĩnh vực kinh doanh"
+            choose_country: "Chọn quốc gia"
+            choose_state: "Chọn tỉnh/thành phố"
+            choose_industry: "Chọn ngành hàng kinh doanh"
+            help_industry: "Chọn ngành hàng kinh doanh để chúng tôi tiện việc thống kê và có những ưu đãi đặc biệt."
+        subscriptions:
+          create:
+            success: "Thêm thông tin đăng ký thành công."
+          update:
+            success: "Cập nhật thông tin đăng ký thành công."
+          destroy:
+            success: "Xóa thông tin đăng ký thành công."
+          delete_all:
+            success: "Xóa thông tin đăng ký được chọn thành công."
+          archive_all:
+            success: "Ẩn thông tin đăng ký được chọn thành công."
+          unarchive_all:
+            success: "Hiện thông tin đăng ký được chọn thành công."
+          index:
+            subscriptions: "Thông tin đăng ký"
+            create: "Thêm thông tin đăng ký"
+            delete: "Xóa thông tin đăng ký"
+            subscription_archived: "Thông tin đăng ký đã bị ẩn"
+            account_name: "Tên tài khoản"
+            plan_name: "Tên gói"
+            quantity: "Số lượng"
+            registed_at: "Thời gian"
+          list:
+            account_name: "Tên tài khoản"
+            plan_name: "Tên gói"
+            quantity: "Số lượng"
+            registed_at: "Thời gian"
+            delete: "Xóa thông tin đăng ký"
+          new:
+            subscriptions: "Thông tin đăng ký"
+            create: "Thêm thông tin đăng ký"
+          edit:
+            subscriptions: "Thông tin đăng ký"
+            create: "Thêm thông tin đăng ký"
+          form:
+            account_name: "Tên tài khoản"
+            plan_name: "Tên gói"
+            quantity: "Số lượng"
+            choose_account_name: "Chọn tài khoản đăng ký"
+            choose_plan_name: "Chọn gói đăng ký"
+  activerecord:
+    errors:
+      models:
+        erp/ns_clouds/plan:
+          attributes:
+            name:
+              blank: "không được trống."
+            price:
+              blank: "không được trống."
+        erp/ns_clouds/account:
+          attributes:
+            domain:
+              blank: "không được trống."
+            username:
+              blank: "không được trống."
+            password:
+              blank: "không được trống."
+            name:
+              blank: "không được trống."
+            phone:
+              blank: "không được trống."
+            email:
+              blank: "không được trống."
+            address:
+              blank: "không được trống."
+            country_id:
+              blank: "không được trống."
+            state_id:
+              blank: "không được trống."
+            industry_id:
+              blank: "không được trống."
+        erp/ns_clouds/subscription:
+          attributes:
+            account_id:
+              blank: "không được trống."
+            plan_id:
+              blank: "không được trống."
+            quantity:
+              blank: "không được trống."
+    attributes:
+      erp/ns_clouds/plan:
+        name: "Tên"
+        price: "Giá"
+      erp/ns_clouds/account:
+        domain: "Tên miền"
+        username: "Tài khoản"
+        password: "Mật khẩu"
+        name: "Tên"
+        phone: "Số điện thoại"
+        email: "Địa chỉ email"
+        address: "Địa chỉ"
+        country_id: "Quốc gia"
+        state_id: "Tỉnh/Thành Phố"
+        industry_id: "Lĩnh vực kinh doanh"
+      erp/ns_clouds/subscription:
+        account_id: "Tên tài khoản"
+        plan_id: "Tên gói"
+        quantity: "Số lượng"
