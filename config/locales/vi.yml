@@ -20,6 +20,10 @@ vi:
             success: "Cập nhật gói phần mềm thành công."
           destroy:
             success: "Xóa gói phần mềm thành công."
+          archive:
+            success: "Ẩn gói phần mềm thành công."
+          unarchive:
+            success: "Hiện gói phần mềm thành công."
           delete_all:
             success: "Xóa gói phần mềm được chọn thành công."
           archive_all:
@@ -36,6 +40,7 @@ vi:
           list:
             name: "Tên"
             price: "Giá"
+            no_matching_records_found: "Danh sách gói phần mềm hiện tại đang trống."
             delete: "Xóa gói phần mềm"
           new:
             plans: "Gói phần mềm"
@@ -56,6 +61,10 @@ vi:
             success: "Thêm tài khoản thành công."
           update:
             success: "Cập nhật tài khoản thành công."
+          archive:
+            success: "Ẩn tài khoản thành công."
+          unarchive:
+            success: "Hiện tài khoản thành công."
           destroy:
             success: "Xóa tài khoản thành công."
           delete_all:
@@ -72,6 +81,7 @@ vi:
             name: "Tên"
           list:
             name: "Tên"
+            no_matching_records_found: "Danh sách tài khoản hiện tại đang trống."
             delete: "Xóa tài khoản"
           new:
             accounts: "Tài khoản"
@@ -103,6 +113,10 @@ vi:
             success: "Thêm thông tin đăng ký thành công."
           update:
             success: "Cập nhật thông tin đăng ký thành công."
+          archive:
+            success: "Ẩn thông tin đăng ký thành công."
+          unarchive:
+            success: "Hiện thông tin đăng ký thành công."
           destroy:
             success: "Xóa thông tin đăng ký thành công."
           delete_all:
@@ -125,6 +139,7 @@ vi:
             plan_name: "Tên gói"
             quantity: "Số lượng"
             registed_at: "Thời gian"
+            no_matching_records_found: "Danh sách thông tin đăng ký hiện tại đang trống."
             delete: "Xóa thông tin đăng ký"
           new:
             subscriptions: "Thông tin đăng ký"
@@ -144,48 +159,48 @@ vi:
         erp/ns_clouds/plan:
           attributes:
             name:
-              blank: "không được trống."
+              blank: "không được để trống."
             price:
-              blank: "không được trống."
+              blank: "không được để trống."
         erp/ns_clouds/account:
           attributes:
             domain:
-              blank: "không được trống."
+              blank: "không được để trống."
             username:
-              blank: "không được trống."
+              blank: "không được để trống."
             password:
-              blank: "không được trống."
+              blank: "không được để trống."
             name:
-              blank: "không được trống."
+              blank: "không được để trống."
             phone:
-              blank: "không được trống."
+              blank: "không được để trống."
             email:
-              blank: "không được trống."
+              blank: "không được để trống."
             address:
-              blank: "không được trống."
+              blank: "không được để trống."
             country_id:
-              blank: "không được trống."
+              blank: "không được để trống."
             state_id:
-              blank: "không được trống."
+              blank: "không được để trống."
             industry_id:
-              blank: "không được trống."
+              blank: "không được để trống."
         erp/ns_clouds/subscription:
           attributes:
             account_id:
-              blank: "không được trống."
+              blank: "không được để trống."
             plan_id:
-              blank: "không được trống."
+              blank: "không được để trống."
             quantity:
-              blank: "không được trống."
+              blank: "không được để trống."
     attributes:
       erp/ns_clouds/plan:
-        name: "Tên"
-        price: "Giá"
+        name: "Tên gói phần mềm"
+        price: "Giá gói phần mềm"
       erp/ns_clouds/account:
         domain: "Tên miền"
         username: "Tài khoản"
         password: "Mật khẩu"
-        name: "Tên"
+        name: "Tên tài khoản"
         phone: "Số điện thoại"
         email: "Địa chỉ email"
         address: "Địa chỉ"

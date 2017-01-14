@@ -4,15 +4,14 @@
 
 <% content_for :page_title do %>    
     <a href="<%= erp_ns_clouds.backend_accounts_path %>">
-    <i class="fa fa-users"></i> <%= t('.accounts') %>
+    <i class="fa fa-user"></i> <%= t('.accounts') %>
     </a> / <%= @account.name %>
 <% end %>
 
 <% content_for :page_toolbar do %>
     <%= erp_component('button/create', {
         text: t('.create'),
-        href: erp_ns_clouds.new_backend_account_path,
-        class: 'btn-sm'
+        href: erp_ns_clouds.new_backend_account_path
     }) %>
 <% end %>
 
