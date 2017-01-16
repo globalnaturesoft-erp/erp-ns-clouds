@@ -17,7 +17,20 @@
     url: erp_ns_clouds.list_backend_subscriptions_path,
     keywords: [
         {
-            text: t('.account_name'), name: ''
+            text: t('.account_name'),
+            name: 'erp_ns_clouds.name',
+            select: {
+                name: 'erp_ns_clouds_accounts.id',
+                data_url: erp_ns_clouds.dataselect_backend_accounts_path
+            }
+        },
+        {
+            text: t('creator'),
+            name: 'erp_users.name',
+            select: {
+                name: 'erp_users.id',
+                data_url: erp.dataselect_backend_users_path
+            }
         }
     ],
     actions: [
