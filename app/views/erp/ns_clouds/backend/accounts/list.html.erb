@@ -14,6 +14,11 @@
                     <%= t('status') %>
                 </th>
             <% end %>
+            <% if get_columns(params).include?("creator") %>
+                <th>
+                    <%= t('creator') %>
+                </th>
+            <% end %>
             <% if get_columns(params).include?("created_at") %>
                 <th class="sortable" sort-by='erp_ns_clouds_accounts.created_at'>
                     <%= t('created_at') %>
@@ -39,6 +44,13 @@
                     <span class="label label-sm label-success"><%= t('active') %></span>
                     <% end %> 
                 </td>
+                <% if get_columns(params).include?("creator") %>
+                    <td>
+                        <%= erp_component('avatar', {
+                            user: account.creator
+                        }) %>
+                    </td>
+                <% end %>
                 <% end %>
                 <% if get_columns(params).include?("created_at") %>
                     <td><%= account.created_at.strftime("%d/%m/%Y") %></td>
