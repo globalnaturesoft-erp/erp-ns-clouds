@@ -3,16 +3,33 @@ module Erp::NsClouds
 		mount_uploader :image_url, Erp::NsClouds::AccountUploader
 		belongs_to :creator, class_name: "Erp::User", optional: true
 		
-		validates :domain, :username, :password, :name, :email, :phone, :address, :industry_id,
-		          :country_id, :state_id, :presence => true
+		validates :domain, :username, :password, :name, :email, :phone, :address, :presence => true
 
 		if Erp::Core.available?("industries")
+			validates :industry_id, :presence => true
+			
       belongs_to :industry, class_name: "Erp::Industries::Industry", optional: true
+      
+      def industry_name
+				industry.present? ? industry.name : ''
+			end
     end
 		
 		if Erp::Core.available?("areas")
+			validates :country_id, :state_id, :presence => true
+			
       belongs_to :country, class_name: "Erp::Areas::Country", optional: true
       belongs_to :state, class_name: "Erp::Areas::State", optional: true
+      
+      # country name
+			def country_name
+				country.present? ? country.name : ''
+			end
+			
+			# state name
+			def state_name
+				state.present? ? state.name : ''
+			end
     end
 		
     # Filters
@@ -106,21 +123,6 @@ module Erp::NsClouds
       
       query = query.limit(8).map{|account| {value: account.id, text: account.name} }
     end
-    
-    # industry name
-    def industry_name
-			industry.present? ? industry.name : ''
-		end
-    
-    # country name
-    def country_name
-			country.present? ? country.name : ''
-		end
-    
-    # state name
-    def state_name
-			state.present? ? state.name : ''
-		end
     
     def archive
 			update_attributes(archived: true)

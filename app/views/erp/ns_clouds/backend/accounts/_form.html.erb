@@ -74,28 +74,30 @@
                         required: true,
                         errors: account.errors.full_messages_for(:address)
                     }) %>
-                    <%= erp_form_control("dataselect", {
-                        name: 'account[country_id]',
-                        value: account.country_id,
-                        text: account.country_name,
-                        placeholder: t('.choose_country'),
-                        label: t('.country'),
-                        url: erp_areas.dataselect_backend_countries_path(format: 'json'),
-                        required: true,
-                        errors: account.errors.full_messages_for(:country_id)
-                    }) %>
-                    <%= erp_form_control("dataselect", {
-                        name: 'account[state_id]',
-                        value: account.state_id,
-                        text: account.state_name,
-                        placeholder: t('.choose_state'),
-                        label: t('.state'),
-                        url: erp_areas.dataselect_backend_states_path(format: 'json'),
-                        required: true,
-                        errors: account.errors.full_messages_for(:state_id),
-                        parent_control: "input[name='account[country_id]']",
-                        parent_id: "country_id"
-                    }) %>
+                    <% if Erp::Core.available?("areas") %>
+                        <%= erp_form_control("dataselect", {
+                            name: 'account[country_id]',
+                            value: account.country_id,
+                            text: account.country_name,
+                            placeholder: t('.choose_country'),
+                            label: t('.country'),
+                            url: erp_areas.dataselect_backend_countries_path(format: 'json'),
+                            required: true,
+                            errors: account.errors.full_messages_for(:country_id)
+                        }) %>
+                        <%= erp_form_control("dataselect", {
+                            name: 'account[state_id]',
+                            value: account.state_id,
+                            text: account.state_name,
+                            placeholder: t('.choose_state'),
+                            label: t('.state'),
+                            url: erp_areas.dataselect_backend_states_path(format: 'json'),
+                            required: true,
+                            errors: account.errors.full_messages_for(:state_id),
+                            parent_control: "input[name='account[country_id]']",
+                            parent_id: "country_id"
+                        }) %>
+                    <% end %>
                     <%= erp_form_control("text", {
                         name: 'account[website]',
                         value: account.website,                   
@@ -111,16 +113,18 @@
                         value: account.tax,                   
                         label: t('.tax')
                     }) %>
-                    <%= erp_form_control("dataselect", {
-                        name: 'account[industry_id]',
-                        value: account.industry_id,
-                        text: account.industry_name,
-                        placeholder: t('.choose_industry'),
-                        label: t('.industry'),
-                        url: erp_industries.dataselect_backend_industries_path(format: 'json'),
-                        required: true,
-                        errors: account.errors.full_messages_for(:industry_id)
-                    }) %>
+                    <% if Erp::Core.available?("industries") %>
+                        <%= erp_form_control("dataselect", {
+                            name: 'account[industry_id]',
+                            value: account.industry_id,
+                            text: account.industry_name,
+                            placeholder: t('.choose_industry'),
+                            label: t('.industry'),
+                            url: erp_industries.dataselect_backend_industries_path(format: 'json'),
+                            required: true,
+                            errors: account.errors.full_messages_for(:industry_id)
+                        }) %>
+                    <% end %>
                 </div>
             </div>
         </div>
