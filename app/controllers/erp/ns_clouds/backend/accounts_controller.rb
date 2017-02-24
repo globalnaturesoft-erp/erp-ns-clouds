@@ -1,5 +1,3 @@
-require_dependency "erp/backend/backend_controller"
-
 module Erp
   module NsClouds
     module Backend
@@ -80,10 +78,10 @@ module Erp
           end
         end
         
+        # ARCHIVE /accounts/archive?id=1
         def archive
           @account.archive
           respond_to do |format|
-            format.html { redirect_to erp_ns_clouds.backend_accounts_path, notice: t('.success') }
             format.json {
               render json: {
                 'message': t('.success'),
@@ -93,10 +91,10 @@ module Erp
           end
         end
         
+        # UNARCHIVE /accounts/unarchive?id=1
         def unarchive
           @account.unarchive
           respond_to do |format|
-            format.html { redirect_to erp_ns_clouds.backend_accounts_path, notice: t('.success') }
             format.json {
               render json: {
                 'message': t('.success'),
@@ -106,7 +104,7 @@ module Erp
           end
         end
         
-        # DELETE /accounts/delete_all?ids=1,2,3
+        # DELETE ALL /accounts/delete_all?ids=1,2,3
         def delete_all         
           @accounts.destroy_all
           
@@ -120,7 +118,7 @@ module Erp
           end          
         end
         
-        # Archive /accounts/archive_all?ids=1,2,3
+        # ARCHIVE ALL /accounts/archive_all?ids=1,2,3
         def archive_all         
           @accounts.archive_all
           
@@ -134,7 +132,7 @@ module Erp
           end          
         end
         
-        # Unarchive /accounts/unarchive_all?ids=1,2,3
+        # UNARCHIVE ALL /accounts/unarchive_all?ids=1,2,3
         def unarchive_all
           @accounts.unarchive_all
           
@@ -148,6 +146,7 @@ module Erp
           end          
         end
         
+        # DATASELECT
         def dataselect
           respond_to do |format|
             format.json {

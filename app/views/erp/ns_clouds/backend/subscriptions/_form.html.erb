@@ -3,8 +3,8 @@
         name: 'subscription[account_id]',
         value: subscription.account_id,
         text: subscription.account_name,
-        placeholder: t('.choose_account_name'),
-        label: t('.account_name'),
+        placeholder: t('.choose_name'),
+        label: t('.name'),
         url: erp_ns_clouds.dataselect_backend_accounts_path(format: 'json'),
         required: true,
         errors: subscription.errors.full_messages_for(:account_id)

@@ -14,7 +14,9 @@
                             <%= erp_form_control("text", {
                                 name: 'account[domain]',
                                 value: account.domain,                   
-                                label: t('.domain'),
+                                label: t('.domain_name'),
+                                help: t('.help_account_domain_name'),
+                                placeholder: t('.placeholder_account_domain_name'),
                                 required: true,
                                 errors: account.errors.full_messages_for(:domain)
                             }) %>
@@ -22,6 +24,8 @@
                                 name: 'account[username]',
                                 value: account.username,                   
                                 label: t('.username'),
+                                help: t('.help_account_username'),
+                                placeholder: t('.placeholder_account_username'),
                                 required: true,
                                 errors: account.errors.full_messages_for(:username)
                             }) %>
@@ -29,6 +33,8 @@
                                 name: 'account[password]',
                                 value: account.password,                   
                                 label: t('.password'),
+                                help: t('.help_account_password'),
+                                placeholder: t('.placeholder_account_password'),
                                 required: true,
                                 errors: account.errors.full_messages_for(:password)
                             }) %>
@@ -39,18 +45,23 @@
                         name: 'account[name]',
                         value: account.name,                   
                         label: t('.name'),
+                        help: t('.help_account_name'),
+                        placeholder: t('.placeholder_account_name'),
                         required: true,
                         errors: account.errors.full_messages_for(:name)
                     }) %>
                     <%= erp_form_control("text", {
                         name: 'account[legal_representative]',
                         value: account.legal_representative,                   
-                        label: t('.legal_representative')
+                        label: t('.legal_representative'),
+                        help: t('.help_account_legal_representative'),
+                        placeholder: t('.placeholder_account_legal_representative'),
                     }) %>
                     <%= erp_form_control("text", {
                         name: 'account[phone]',
                         value: account.phone,                   
                         label: t('.phone'),
+                        placeholder: t('.placeholder_account_phone'),
                         required: true,
                         errors: account.errors.full_messages_for(:phone)
                     }) %>
@@ -58,6 +69,7 @@
                         name: 'account[email]',
                         value: account.email,                   
                         label: t('.email'),
+                        placeholder: t('.placeholder_account_email'),
                         required: true,
                         errors: account.errors.full_messages_for(:email)
                     }) %>
@@ -71,6 +83,7 @@
                         name: 'account[address]',
                         value: account.address,                   
                         label: t('.address'),
+                        placeholder: t('.placeholder_account_address'),
                         required: true,
                         errors: account.errors.full_messages_for(:address)
                     }) %>
@@ -101,17 +114,20 @@
                     <%= erp_form_control("text", {
                         name: 'account[website]',
                         value: account.website,                   
-                        label: t('.website')
+                        label: t('.website'),
+                        placeholder: t('.placeholder_account_website'),
                     }) %>
                     <%= erp_form_control("text", {
                         name: 'account[fax]',
                         value: account.fax,                   
-                        label: t('.fax')
+                        label: t('.fax'),
+                        placeholder: t('.placeholder_account_fax'),
                     }) %>
                     <%= erp_form_control("text", {
                         name: 'account[tax]',
                         value: account.tax,                   
-                        label: t('.tax')
+                        label: t('.tax'),
+                        placeholder: t('.placeholder_account_tax'),
                     }) %>
                     <% if Erp::Core.available?("industries") %>
                         <%= erp_form_control("dataselect", {

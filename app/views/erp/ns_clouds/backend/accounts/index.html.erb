@@ -17,6 +17,9 @@
     url: erp_ns_clouds.list_backend_accounts_path,
     keywords: [
         {
+            text: t('.domain_name'), name: 'erp_ns_clouds_accounts.domain'
+        },
+        {
             text: t('.name'), name: 'erp_ns_clouds_accounts.name'
         },
         {
@@ -30,12 +33,12 @@
     ],
     actions: [
         {
-            text: '<i class="fa fa-eye-slash"></i> '+t('archive'),
+            text: '<i class="fa fa-remove"></i> '+t('archive'),
             url: erp_ns_clouds.archive_all_backend_accounts_path,
             data_method: 'PUT'
         },
         {
-            text: '<i class="fa fa-eye"></i> '+t('unarchive'),
+            text: '<i class="fa fa-check"></i> '+t('unarchive'),
             url: erp_ns_clouds.unarchive_all_backend_accounts_path,
             data_method: 'PUT'
         },
@@ -51,10 +54,13 @@
     ],
     filters: [
         {
-            text: t('.account_archived'), name: 'show_archived', value: true, checked: false
+            text: t('archived'), name: 'show_archived', value: true, checked: false
         },
     ],
     columns: [
+        {
+            text: t('.domain_name'), name: 'domain_name', value: true, checked: true
+        },
         {
             text: t('.name'), name: 'name', value: true, checked: true
         },
@@ -62,7 +68,7 @@
             text: t('status'), name: 'status', value: true, checked: true
         },
         {
-            text: t('creator'), name: 'creator', value: true, checked: false
+            text: t('creator'), name: 'creator', value: true, checked: true
         },
         {
             text: t('created_at'), name: 'created_at', value: true, checked: true

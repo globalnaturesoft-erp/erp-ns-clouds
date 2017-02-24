@@ -80,10 +80,10 @@ module Erp
           end
         end
         
+        # ARCHIVE /subscriptions/archive?id=1
         def archive
           @subscription.archive
           respond_to do |format|
-            format.html { redirect_to erp_ns_clouds.backend_subscriptions_path, notice: t('.success') }
             format.json {
               render json: {
                 'message': t('.success'),
@@ -93,10 +93,10 @@ module Erp
           end
         end
         
+        # UNARCHIVE /subscriptions/unarchive?id=1
         def unarchive
           @subscription.unarchive
           respond_to do |format|
-            format.html { redirect_to erp_ns_clouds.backend_subscriptions_path, notice: t('.success') }
             format.json {
               render json: {
                 'message': t('.success'),
@@ -106,7 +106,7 @@ module Erp
           end
         end
         
-        # DELETE /subscriptions/delete_all?ids=1,2,3
+        # DELETE ALL /subscriptions/delete_all?ids=1,2,3
         def delete_all         
           @subscriptions.destroy_all
           
@@ -120,7 +120,7 @@ module Erp
           end          
         end
         
-        # Archive /subscriptions/archive_all?ids=1,2,3
+        # ARCHIVE ALL /subscriptions/archive_all?ids=1,2,3
         def archive_all         
           @subscriptions.archive_all
           
@@ -134,7 +134,7 @@ module Erp
           end          
         end
         
-        # Unarchive /subscriptions/unarchive_all?ids=1,2,3
+        # UNARCHIVE ALL /subscriptions/unarchive_all?ids=1,2,3
         def unarchive_all
           @subscriptions.unarchive_all
           
@@ -148,6 +148,7 @@ module Erp
           end          
         end
         
+        # DATASELECT
         def dataselect
           respond_to do |format|
             format.json {

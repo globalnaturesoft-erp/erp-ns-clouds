@@ -7,6 +7,8 @@
                         name: 'plan[name]',
                         value: plan.name,                   
                         label: t('.name'),
+                        help: t('.help_plan_name'),
+                        placeholder: t('.placeholder_plan_name'),
                         required: true,
                         errors: plan.errors.full_messages_for(:name)
                     }) %>
@@ -14,6 +16,8 @@
                         name: 'plan[price]',
                         value: plan.price,                   
                         label: t('.price'),
+                        help: t('.help_plan_price'),
+                        placeholder: t('.placeholder_plan_price'),
                         required: true,
                         errors: plan.errors.full_messages_for(:price)
                     }) %>
@@ -21,6 +25,7 @@
                         label: t('.period'),
                         name: 'plan[period]',
                         value: plan.period,
+                        help: t('.help_plan_period'),
                         options: Erp::NsClouds::Plan.get_period_options(),
                         required: true,
                         errors: plan.errors.full_messages_for(:period)
@@ -28,7 +33,9 @@
                     <%= erp_form_control("textarea", {
                         name: 'plan[description]',
                         value: plan.description,                   
-                        label: t('.description')
+                        label: t('.description'),
+                        help: t('.help_plan_description'),
+                        placeholder: t('.placeholder_plan_description')
                     }) %>
                 </div>
             </div>

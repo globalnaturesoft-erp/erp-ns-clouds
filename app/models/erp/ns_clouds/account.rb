@@ -2,7 +2,6 @@ module Erp::NsClouds
   class Account < ApplicationRecord
 		mount_uploader :image_url, Erp::NsClouds::AccountUploader
 		belongs_to :creator, class_name: "Erp::User", optional: true
-		
 		validates :domain, :username, :password, :name, :email, :phone, :address, :presence => true
 
 		if Erp::Core.available?("industries")

@@ -3,7 +3,6 @@ module Erp::NsClouds
     belongs_to :plan
     belongs_to :account
     belongs_to :creator, class_name: "Erp::User", optional: true
-    
     validates :account_id, :plan_id, :quantity, :presence => true
     
     # Filters
@@ -62,6 +61,9 @@ module Erp::NsClouds
       # join with users table for search creator
       query = query.joins(:creator)
       
+      # join with accounts table for search domain and name
+      query = query.joins(:account)
+      
       # showing archived items if show_archived is not true
       query = query.where(archived: false) if show_archived == false
       
@@ -99,11 +101,16 @@ module Erp::NsClouds
     end
     
     # acount name
-    def account_name
+    def account_domain
 			account.present? ? account.name : ''
 		end
     
-    # state name
+    # dmain name
+    def account_name
+			account.present? ? account.domain : ''
+		end
+    
+    # plan name
     def plan_name
 			plan.present? ? plan.name : ''
 		end

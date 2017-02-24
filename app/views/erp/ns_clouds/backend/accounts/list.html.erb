@@ -4,20 +4,19 @@
             <th width='1%'>
                 <%= erp_datalist_check_all %>
             </th>
-            <% if get_columns(params).include?("name") %>
-                <th class="sortable" sort-by='erp_ns_clouds_accounts.name'>
-                    <%= t('.name') %>
+            <% if get_columns(params).include?("domain_name") %>
+                <th class="sortable" sort-by='erp_ns_clouds_accounts.domain'>
+                    <%= t('.domain_name') %>
                 </th>
+            <% end %>
+            <% if get_columns(params).include?("name") %>
+                <th><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("status") %>
-                <th>
-                    <%= t('status') %>
-                </th>
+                <th><%= t('status') %></th>
             <% end %>
             <% if get_columns(params).include?("creator") %>
-                <th>
-                    <%= t('creator') %>
-                </th>
+                <th><%= t('creator') %></th>
             <% end %>
             <% if get_columns(params).include?("created_at") %>
                 <th class="sortable" sort-by='erp_ns_clouds_accounts.created_at'>
@@ -28,13 +27,16 @@
         </tr>
     </thead>
     <tbody>
-        <% if @accounts.each do |account| %>
+        <% @accounts.each do |account| %>
             <tr class="odd gradeX">
                 <td>
                     <%= erp_datalist_check_row(id: account.id) %>
                 </td>
+                <% if get_columns(params).include?("domain_name") %>
+                    <td><%= link_to account.domain, erp_ns_clouds.edit_backend_account_path(account) %></td>
+                <% end %>
                 <% if get_columns(params).include?("name") %>
-                    <td><%= link_to account.name, erp_ns_clouds.edit_backend_account_path(account) %></td>
+                    <td><%= account.name %></td>
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                 <td>
@@ -63,14 +65,14 @@
                                 href: erp_ns_clouds.edit_backend_account_path(account)
                             },
                             {
-                                text: '<i class="fa fa-eye-slash"></i> '+t('archive'),
+                                text: '<i class="fa fa-remove"></i> '+t('archive'),
                                 url: erp_ns_clouds.archive_backend_accounts_path(id: account),
                                 data_method: 'PUT',
                                 hide: account.archived,
                                 class: 'ajax-link'
                             },
                             {
-                                text: '<i class="fa fa-eye"></i> '+t('unarchive'),
+                                text: '<i class="fa fa-check"></i> '+t('unarchive'),
                                 url: erp_ns_clouds.unarchive_backend_accounts_path(id: account),
                                 data_method: 'PUT',
                                 hide: !account.archived,
@@ -90,12 +92,11 @@
                     ) %>
                 </td>
             </tr>
-        <% end.empty? %>
-            <tr>
-                <td colspan="7"><%= t('.no_matching_records_found') %></td>
-            </tr>
         <% end %>
     </tbody>
 </table>
+<% if @accounts.empty? %>
+    <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
+<% end %>
         
 <%= erp_datalist_pagination(@accounts) %>

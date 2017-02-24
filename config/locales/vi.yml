@@ -21,27 +21,26 @@ vi:
           destroy:
             success: "Xóa gói phần mềm thành công."
           archive:
-            success: "Ẩn gói phần mềm thành công."
+            success: "Ngưng sử dụng gói phần mềm thành công."
           unarchive:
-            success: "Hiện gói phần mềm thành công."
+            success: "Sử dụng lại gói phần mềm thành công."
           delete_all:
             success: "Xóa gói phần mềm được chọn thành công."
           archive_all:
-            success: "Ẩn gói phần mềm được chọn thành công."
+            success: "Ngưng sử dụng gói phần mềm được chọn thành công."
           unarchive_all:
-            success: "Hiện gói phần mềm được chọn thành công."
+            success: "Sử dụng lại gói phần mềm được chọn thành công."
           index:
             plans: "Gói phần mềm"
             create: "Thêm gói phần mềm"
             delete: "Xóa gói phần mềm"
-            plan_archived: "Gói phần mềm đã bị ẩn"
-            name: "Tên"
+            name: "Tên gói"
             price: "Giá"
           list:
-            name: "Tên"
+            name: "Tên gói"
             price: "Giá"
-            no_matching_records_found: "Danh sách gói phần mềm hiện tại đang trống."
             delete: "Xóa gói phần mềm"
+            no_matching_records_found: "Danh sách gói phần mềm hiện tại đang trống."
           new:
             plans: "Gói phần mềm"
             create: "Thêm gói phần mềm"
@@ -49,10 +48,18 @@ vi:
             plans: "Gói phần mềm"
             create: "Thêm gói phần mềm"
           form:
-            name: "Tên"
+            name: "Tên gói"
+            help_plan_name: "Tên gói phần mềm"
+            placeholder_plan_name: "Nhập tên gói phần mềm"
             price: "Giá"
+            help_plan_price: "Giá sử dụng của gói phần mềm"
+            placeholder_plan_price: "Nhập giá gói phần mềm"
             period: "Giai đoạn"
+            help_plan_period: "Thời gian sử dụng gói phần mềm."
             description: "Mô tả"
+            help_plan_description: "Mô tả cho gói phần mềm"
+            placeholder_plan_description: "Nhập mô tả cho gói phần mềm....."
+            add: "Thêm chức năng"
           form_plan_detail:
             icon: "Chèn icon....."
             name: "Nhập tên chức năng....."
@@ -62,25 +69,26 @@ vi:
           update:
             success: "Cập nhật tài khoản thành công."
           archive:
-            success: "Ẩn tài khoản thành công."
+            success: "Ngưng sử dụng tài khoản thành công."
           unarchive:
-            success: "Hiện tài khoản thành công."
+            success: "Sử dụng lại tài khoản thành công."
           destroy:
             success: "Xóa tài khoản thành công."
           delete_all:
             success: "Xóa tài khoản được chọn thành công."
           archive_all:
-            success: "Ẩn tài khoản được chọn thành công."
+            success: "Ngưng sử dụng tài khoản được chọn thành công."
           unarchive_all:
-            success: "Hiện tài khoản được chọn thành công."
+            success: "Sử dụng lại tài khoản được chọn thành công."
           index:
             accounts: "Tài khoản"
             create: "Thêm tài khoản"
             delete: "Xóa tài khoản"
-            account_archived: "Tài khoản đã bị ẩn"
-            name: "Tên"
+            domain_name: "Tên miền"
+            name: "Tên thành viên"
           list:
-            name: "Tên"
+            domain_name: "Tên miền"
+            name: "Tên thành viên"
             no_matching_records_found: "Danh sách tài khoản hiện tại đang trống."
             delete: "Xóa tài khoản"
           new:
@@ -90,57 +98,73 @@ vi:
             accounts: "Tài khoản"
             create: "Thêm tài khoản"
           form:
-            domain: "Tên miền"
+            domain_name: "Tên miền"
+            help_account_domain_name: "Tên miền đăng ký sử dụng"
+            placeholder_account_domain_name: "Nhập tên miền đăng ký"
             username: "Tài khoản"
+            help_account_username: "Tài khoản đăng ký sử dụng"
+            placeholder_account_username: "Nhập tài khoản đăng ký"
             password: "Mật khẩu"
-            name: "Tên"
+            help_account_password: "Mật khẩu đăng ký sử dụng"
+            placeholder_account_password: "Nhập mật khẩu đăng ký"
+            name: "Tên thành viên"
+            help_account_name: "Tên thành viên đăng ký sử dụng"
+            placeholder_account_name: "Nhập tên thành viên đăng ký"
             legal_representative: "Người đại diện"
+            help_account_legal_representative: "Tên người đại diện"
+            placeholder_account_legal_representative: "Nhập tên người đại diện (nếu có)"
             phone: "Số điện thoại"
+            placeholder_account_phone: "Nhập số điện thoại"
             email: "Địa chỉ email"
+            placeholder_account_email: "Nhập địa chỉ email"
             address: "Địa chỉ"
+            placeholder_account_address: "Nhập địa chỉ"
             country: "Quốc gia"
-            state: "Tỉnh/Thành Phố"
-            website: "Trang web"
-            fax: "Số fax"
-            tax: "Mã số thuế"
-            industry: "Lĩnh vực kinh doanh"
             choose_country: "Chọn quốc gia"
+            state: "Tỉnh/Thành Phố"
             choose_state: "Chọn tỉnh/thành phố"
+            website: "Trang web"
+            placeholder_account_website: "Nhập tên website (nếu có)"
+            fax: "Số fax"
+            placeholder_account_fax: "Nhập mã số fax (nếu có)"
+            tax: "Mã số thuế"
+            placeholder_account_tax: "Nhập mã số thuế (nếu có)"
+            industry: "Lĩnh vực kinh doanh"
             choose_industry: "Chọn ngành hàng kinh doanh"
-            help_industry: "Chọn ngành hàng kinh doanh để chúng tôi tiện việc thống kê và có những ưu đãi đặc biệt."
         subscriptions:
           create:
             success: "Thêm thông tin đăng ký thành công."
           update:
             success: "Cập nhật thông tin đăng ký thành công."
           archive:
-            success: "Ẩn thông tin đăng ký thành công."
+            success: "Ngưng sử dụng thông tin đăng ký thành công."
           unarchive:
-            success: "Hiện thông tin đăng ký thành công."
+            success: "Sử dụng lại thông tin đăng ký thành công."
           destroy:
             success: "Xóa thông tin đăng ký thành công."
           delete_all:
             success: "Xóa thông tin đăng ký được chọn thành công."
           archive_all:
-            success: "Ẩn thông tin đăng ký được chọn thành công."
+            success: "Ngưng sử dụng thông tin đăng ký được chọn thành công."
           unarchive_all:
-            success: "Hiện thông tin đăng ký được chọn thành công."
+            success: "Sử dụng lại thông tin đăng ký được chọn thành công."
           index:
             subscriptions: "Thông tin đăng ký"
             create: "Thêm thông tin đăng ký"
             delete: "Xóa thông tin đăng ký"
-            subscription_archived: "Thông tin đăng ký đã bị ẩn"
-            account_name: "Tên tài khoản"
+            domain_name: "Tên miền"
+            name: "Tên thành viên"
             plan_name: "Tên gói"
             quantity: "Số lượng"
             registed_at: "Thời gian"
           list:
-            account_name: "Tên tài khoản"
+            domain_name: "Tên miền"
+            name: "Tên thành viên"
             plan_name: "Tên gói"
             quantity: "Số lượng"
             registed_at: "Thời gian"
-            no_matching_records_found: "Danh sách thông tin đăng ký hiện tại đang trống."
             delete: "Xóa thông tin đăng ký"
+            no_matching_records_found: "Danh sách thông tin đăng ký hiện tại đang trống."
           new:
             subscriptions: "Thông tin đăng ký"
             create: "Thêm thông tin đăng ký"
@@ -148,10 +172,10 @@ vi:
             subscriptions: "Thông tin đăng ký"
             create: "Thêm thông tin đăng ký"
           form:
-            account_name: "Tên tài khoản"
+            name: "Tên thành viên"
             plan_name: "Tên gói"
             quantity: "Số lượng"
-            choose_account_name: "Chọn tài khoản đăng ký"
+            choose_name: "Chọn tài khoản đăng ký"
             choose_plan_name: "Chọn gói đăng ký"
   activerecord:
     errors:
@@ -208,6 +232,6 @@ vi:
         state_id: "Tỉnh/Thành Phố"
         industry_id: "Lĩnh vực kinh doanh"
       erp/ns_clouds/subscription:
-        account_id: "Tên tài khoản"
+        account_id: "Tên thành viên"
         plan_id: "Tên gói"
         quantity: "Số lượng"

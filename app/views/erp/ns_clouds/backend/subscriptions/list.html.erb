@@ -4,35 +4,28 @@
             <th width='1%'>
                 <%= erp_datalist_check_all %>
             </th>
-            <% if get_columns(params).include?("account_name") %>
-                <th class="sortable" sort-by='erp_ns_clouds_subscriptions.account_name'>
-                    <%= t('.account_name') %>
+            <% if get_columns(params).include?("domain_name") %>
+                <th class="sortable" sort-by='erp_ns_clouds_subscriptions.domain_name'>
+                    <%= t('.domain_name') %>
                 </th>
+            <% end %>
+            <% if get_columns(params).include?("account_name") %>
+                <th><%= t('.name') %></th>
             <% end %>
             <% if get_columns(params).include?("plan_name") %>
-                <th>
-                    <%= t('.plan_name') %>
-                </th>
+                <th><%= t('.plan_name') %></th>
             <% end %>
             <% if get_columns(params).include?("quantity") %>
-                <th>
-                    <%= t('.quantity') %>
-                </th>
+                <th><%= t('.quantity') %></th>
             <% end %>
             <% if get_columns(params).include?("registed_at") %>
-                <th>
-                    <%= t('.registed_at') %>
-                </th>
+                <th><%= t('.registed_at') %></th>
             <% end %>
             <% if get_columns(params).include?("status") %>
-                <th>
-                    <%= t('status') %>
-                </th>
+                <th><%= t('status') %></th>
             <% end %>
             <% if get_columns(params).include?("creator") %>
-                <th>
-                    <%= t('creator') %>
-                </th>
+                <th><%= t('creator') %></th>
             <% end %>
             <% if get_columns(params).include?("created_at") %>
                 <th class="sortable" sort-by='erp_ns_clouds_subscriptions.created_at'>
@@ -43,13 +36,16 @@
         </tr>
     </thead>
     <tbody>
-        <% if @subscriptions.each do |subscription| %>
+        <% @subscriptions.each do |subscription| %>
             <tr class="odd gradeX">
                 <td>
                     <%= erp_datalist_check_row(id: subscription.id) %>
                 </td>
+                <% if get_columns(params).include?("domain_name") %>
+                    <td><%= link_to subscription.domain_name, erp_ns_clouds.edit_backend_subscription_path(subscription) %></td>
+                <% end %>
                 <% if get_columns(params).include?("account_name") %>
-                    <td><%= link_to subscription.account_name, erp_ns_clouds.edit_backend_subscription_path(subscription) %></td>
+                    <td><%= subscription.account_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("plan_name") %>
                     <td><%= subscription.plan_name %></td>
@@ -87,14 +83,14 @@
                                 href: erp_ns_clouds.edit_backend_subscription_path(subscription)
                             },
                             {
-                                text: '<i class="fa fa-eye-slash"></i> '+t('archive'),
+                                text: '<i class="fa fa-remove"></i> '+t('archive'),
                                 url: erp_ns_clouds.archive_backend_subscriptions_path(id: subscription),
                                 data_method: 'PUT',
                                 hide: subscription.archived,
                                 class: 'ajax-link'
                             },
                             {
-                                text: '<i class="fa fa-eye"></i> '+t('unarchive'),
+                                text: '<i class="fa fa-check"></i> '+t('unarchive'),
                                 url: erp_ns_clouds.unarchive_backend_subscriptions_path(id: subscription),
                                 data_method: 'PUT',
                                 hide: !subscription.archived,
@@ -114,12 +110,11 @@
                     ) %>
                 </td>
             </tr>
-        <% end.empty? %>
-            <tr>
-                <td colspan="8"><%= t('.no_matching_records_found') %></td>
-            </tr>
         <% end %>
     </tbody>
 </table>
+<% if @subscriptions.empty? %>
+    <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
+<% end %>
         
 <%= erp_datalist_pagination(@subscriptions) %>
